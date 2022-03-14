@@ -12,7 +12,7 @@ using namespace std;
      username[5] = 'm';
      username[6] = 0;
 
-     char nickname[] = {'S','h','o','h','a','i','b', 0};*/
+     char nickname[] = {'S','h','o','h','a','i','b', 0}; */
 
      vector <int> vec;
      vec.push_back(2);
@@ -28,3 +28,5 @@ using namespace std;
      }
     return 0;
  }
+
+
