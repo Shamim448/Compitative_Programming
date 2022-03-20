@@ -11,5 +11,7 @@ long long get_summetion( int n)
 }
 int main()
 {
-    cout << get_summetion(10000000);
+    int n;
+    cin >> n;
+    cout << get_summetion(n);
 }
