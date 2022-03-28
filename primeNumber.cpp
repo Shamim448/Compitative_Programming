@@ -28,7 +28,6 @@ void primeNumberGenerator(int L, int R)
 
 }
 
-
 int main()
 {
     int L, R;
