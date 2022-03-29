@@ -15,9 +15,9 @@ bool does_exists( vector <int>&arra, int elem){
 }
 
 int main(){
-    vector <int> arra = {2, 4, 7, 9, 13, 17, 19, 30, 37, 40, 43, 48, 58};
-   for( auto v: {2, 4, 5, 6, 17, 30})
-    cout << does_exists(arra, v);
+    vector <int> arra = {1,2,3,4,6,10,25,26,38,100};
+  // for( auto v: arra)
+    cout << does_exists(arra, 4);
 
 return 0;
 }
