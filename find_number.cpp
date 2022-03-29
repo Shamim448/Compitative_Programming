@@ -8,7 +8,7 @@ bool does_exists(vector<int> &arr, int item)
     {
         int M = L+(R-L)/2;
         if(arr[M] == item) return true;
-        if(arr[M] > item) R= M-1;
+        if(arr[M] > item) R= M;
         else
             L= M+1;
     }
@@ -16,8 +16,8 @@ bool does_exists(vector<int> &arr, int item)
 }
 int main()
 {
-    vector<int> arr = {1, 2, 3, 4, 6, 10, 25, 26, 38, 100};
-    for(auto v : {1, 2, 3, 5,7,8,10}){
+    vector<int> arr = {1};
+    for(auto v : {3}){
      cout << does_exists(arr, v);
     }
 
