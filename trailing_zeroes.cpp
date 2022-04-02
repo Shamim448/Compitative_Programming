@@ -38,16 +38,16 @@ int find_n(int Q)
 
 int main()
 {
-    int T, Q, cs=1;
+    int T, Q;
     scanf("%d", &T);
     while(T--)
     {
         scanf("%d", &Q);
         int N = find_n(Q);
-        printf("Case %d:", cs++);
+        printf("Case %d: ", cs++);
         if(N == -1)
         {
-            printf("impossible");
+            printf("impossible\n");
         }
         else
         {
