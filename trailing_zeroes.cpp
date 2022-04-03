@@ -38,7 +38,7 @@ int find_n(int Q)
 
 int main()
 {
-    int T, Q;
+    int T, Q, cs = 1;
     scanf("%d", &T);
     while(T--)
     {
