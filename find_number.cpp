@@ -8,7 +8,7 @@ bool does_exists(vector<int> &arr, int item)
     {
         int M = L+(R-L)/2;
         if(arr[M] == item) return true;
-        if(arr[M] > item) R= M;
+        if(arr[M] > item) R = M-1;
         else
             L= M+1;
     }
