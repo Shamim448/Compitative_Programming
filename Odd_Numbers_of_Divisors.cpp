@@ -9,9 +9,10 @@ int divisorCount(long long N)
         if(N % i == 0)
         {
             counts+=1;
-            if(N/i != i){
-            counts+=1;
-        }
+            if(N/i != i)
+            {
+                counts+=1;
+            }
         }
 
     }
@@ -20,13 +21,34 @@ int divisorCount(long long N)
 int main()
 {
 
-        for(int i= 2; i <= 49; i++)
+
+    int T;
+    cin>> T;
+    while(T--)
+    {
+        long long k,low, high;
+        cin>>k>>low>>high;
+        vector<long long> arr;
+        for(int i= low; i <= high; i++)
         {
-            cout << i << " = " << divisorCount(i) << endl;
+            if(divisorCount(i) % 2 != 0)
+            {
+                arr.push_back(divisorCount(i));
+            }
         }
+        int j = 1;
+        int counts = 0;
+        for( auto it:arr)
+        {
+            if(it == k)
+            {
+                counts++;
+            }
+            /// cout << j++ << " = " << it <<endl;
+        }
+        cout << counts << endl;
 
-
-
+    }
 
     return 0;
 }

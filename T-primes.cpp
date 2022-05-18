@@ -19,7 +19,7 @@ void sieveOfEratosthenes(long long n)
 
 int main ()
 {
-
+    sieveOfEratosthenes(MAX);
     int T;
     cin >> T;
     while(T--)
@@ -27,7 +27,6 @@ int main ()
         long long n;
         cin >> n;
         long long sN = sqrtl(n);
-        sieveOfEratosthenes(sN);
         if(sN * sN == n && composite[sN]== false)
         {
             cout << "YES" << endl;
