@@ -3,68 +3,65 @@ using namespace std;
 
 void printArray(vector<int> &vec)
 {
-    for(auto it : vec)
+    for(auto v : vec)
     {
-        cout << it << " " ;
+        cout << v << " " ;
     }
+    cout << endl;
 }
-
-void merge(vector<int> &vec, int mid, int low, int high){
-vector<int> vecB;
-    int i, j;
-    i = low;
-    j = mid + 1;
-
-
-    while (i <= mid && j <= high)
+///marge two array
+void margeArray(vector <int> &vec, int L, int M, int R )
+{
+    vector <int> tempArray;
+    int leftArray = L;
+    int rightArray = M+1;
+    while(leftArray <= M && rightArray <= R)
     {
-        if (vec[i] < vec[j])
+        if(vec[leftArray] <= vec[rightArray])
         {
-             vecB.push_back(vec[i]);
-            i++;
+            tempArray.push_back(vec[leftArray]);
+            leftArray++;
         }
         else
         {
-            vecB.push_back(vec[j]);
-            j++;
+            tempArray.push_back(vec[rightArray]);
+            rightArray++;
         }
     }
-    while (i <= mid)
+    ///for leftArray incomplete arry
+    while(leftArray <= M)
     {
-        vecB.push_back(vec[i]);
-        i++;
+        tempArray.push_back(vec[leftArray]);
+        leftArray++;
     }
-    while (j <= high)
+     ///for right Array incomplete arry
+    while(rightArray <= R)
     {
-        vecB.push_back(vec[j]);
-        j++;
+        tempArray.push_back(vec[rightArray]);
+        rightArray++;
     }
-    for (int i = low; i <= high; i++)
-    {
-        vec[i] = vecB[i];
+    for(int i = L; i <= R; i++){
+        vec[i] = tempArray[i - L];
     }
-
 }
 
-void mergeSort(vector<int> &vec, int low, int high){
-    int mid;
-    if(low<high){
-        mid = (low + high) /2;
-        mergeSort(vec, low, mid);
-        mergeSort(vec, mid+1, high);
-        merge(vec, mid, low, high);
-    }
+///Recursive Marge sort
+void margeSort(vector <int> &vec, int L, int R)
+{
+    if(L >= R) return;
+    int mid = (L + R) / 2;
+    margeSort(vec, L, mid);
+    margeSort(vec, mid+1, R);
+    margeArray(vec, L, mid, R);
 }
 
 int main()
 {
-    vector<int> vec ={9, 1, 4, 14, 4, 15, 6 };
-    // int A[] = {9, 14, 4, 8, 7, 5, 6};
-    int n = vec.size();
-
+    vector <int> vec = {12, 5, 9, 14, 3, 6, -1, 7, 0, 5};
     printArray(vec);
-    mergeSort(vec, 0, n);
-    cout << endl;
+    margeSort(vec, 0, vec.size()-1);
     printArray(vec);
     return 0;
 }
+
+
