@@ -35,8 +35,7 @@ void bubbleSort(vector<int> &vec)
 
 int main()
 {
-   // vector<int> vec = {12, 54, 65, 7, 23, 9};
-    vector<int> vec = {1,2,3,4,5};
+    vector<int> vec = {12, 54, 65, 7, 23, 9};
     printArray(vec); /// print original array
     bubbleSort(vec);
     cout<<endl;
