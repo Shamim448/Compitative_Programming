@@ -2,24 +2,17 @@
 using namespace std;
 
 int main(){
-     stack <int> st;
-    st.push(1);
-    st.push(2);
-    st.push(3);
-    st.push(4);
-    st.push(5);
-    cout << st.top() << "\n";
-    cout <<"Stack size: " << st.size() << "\n";
-    st.pop();
-    cout << st.top() << "\n";
-    st.push(6);
-    st.push(7);
-    cout <<"Stack size: " << st.size() << "\n";
-    cout << "------------ " << "\n";
-  while(!st.empty()){
-        cout << st.top() << "\n";
-        st.pop();
-    }
-
+     stack <vector<int>> st;
+     st.push({1,2,3});
+     st.push({4,5,6});
+     st.push({7,8,9});
+    auto vc = st.top();
+    for(auto it:vc)
+        cout << it << " ";
+    st.push({17,78,59});
+    auto vec = st.top();
+    cout <<"\n"<< vec[0] <<"\n";
+    for(auto it:vec)
+        cout << it << " ";
     return 0;
 }
