@@ -6,7 +6,7 @@ bool isValidBracketSeq(string &s){
         if(c == '('){
             stk.push(c);
            }
-        else{
+        else{ /// c= ")"
             if(!stk.empty()) stk.pop();
             else return false;
         }
