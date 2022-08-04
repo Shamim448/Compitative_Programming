@@ -1,3 +1,10 @@
+/* Step of code
+1.Generate prefix hash o string s1 a=1 -->ab= 12 --> abc= 123 --> abcc= 1233 where base = 10
+2.Generate Hash Value of s2
+3.calculate all power in po array depend on base p[x] = p[x-1] * BASE
+4.create a function to calculate substring hash value like generate hash s[L, R] --> s="abccdabc"--> hash(0, 2) == abc
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 #define BASE 10
