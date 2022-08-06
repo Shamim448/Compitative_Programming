@@ -7,19 +7,20 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define BASE 10
-#define MAX_S 10005
+#define BASE 129
+#define MAX_S 1000005
+#define MOD 202206214218227
 long long h[MAX_S], po[MAX_S];
 void generatePrefixHash(string &s)
 {
     h[0] = s[0] - 'a' + 1;
     for(int i = 1; i < s.size(); i++)
     {
-        h[i] = h[i - 1] * BASE + s[i] - 'a' + 1;
+        h[i] = (h[i - 1] * BASE + s[i] - 'a' + 1) % MOD;
         po[0] = 1;
         for(int i = 1; i < s.size(); i++)
         {
-            po[i] = po[i - 1] * BASE; /// p[x] = p[x-1] * BASE
+            po[i] = (po[i - 1] * BASE) % MOD; /// p[x] = p[x-1] * BASE
         }
     }
 }
@@ -28,14 +29,14 @@ long long generateHash(string &s2)
     long long hashValue = 0;
     for(auto c : s2)
     {
-        hashValue = hashValue * BASE + c - 'a' + 1;
+        hashValue = (hashValue * BASE + c - 'a' + 1) % MOD;
     }
     return hashValue;
 }
 long long getHash(int L, int R)  ///generate hash s[L, R] --> s="abccdabc"--> hash(0, 2) == abc
 {
     if (L == 0) return h[R];
-    return (h[R] - (h[L-1] * po[R - L + 1]) );  ///h[R] prefix - h[L-1] ar prefix * BASE ^ (R - L +1) substr size
+    return (h[R] - ((h[L-1]) * (po[R - L + 1])% MOD) + MOD ) % MOD;  ///h[R] prefix - h[L-1] ar prefix * BASE ^ (R - L +1) substr size
 }
 
 int main()
