@@ -3,6 +3,7 @@
 2. Generate Prefix Hash for main string and reverse string
 3. Calculate Hash value for specific range
 4. calculate base to the power something for help step 3(calculate hash value)
+5. Check exists palindrome in specific range
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,26 +27,48 @@ vector<long long>getBaseToThePower(int N)
     vector<long long> po(N +1, 1);
     for(int i = 1; i <= N; i++)
     {
-        po[1] = (po[i - 1] * BASE) % MOD;
+        po[i] = (po[i - 1] * BASE) % MOD;
     }
     return po;
 }
 ///step 3
-long long getRangHash(int L, int R, vector<long long>&prefixHashValue, vector<long long> &po  )
+long long getRangHash(int L, int R, vector<long long>&prefixHashValue, vector<long long> &po )
 {
     if(!L) return prefixHashValue[R];
     return (prefixHashValue[R] - (prefixHashValue[L - 1] * po[R-L+1] % MOD) + MOD) % MOD;
+}
+///step-5
+bool existsPalindrome( int len, vector<long long>&stringPrefixHash, vector<long long>&ReverseStringPrefixHash, vector<long long> &po)
+{
+    int N = stringPrefixHash.size();
+    int L1, R1, L2, R2;
+    for(int i = 0; i+len <= stringPrefixHash.size(); i++ )
+    {
+        L1 = i;
+        R1 = i + len - 1; ///[0,1,2,3,4,5]
+        R2 = N - 1 - L1;
+        L2 = R2 - R1 + L1;
+        if(getRangHash(L1, R1, stringPrefixHash, po) == getRangHash(L2, R2, ReverseStringPrefixHash, po))
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 int main()
 {
     string s, rs;
     cin >> s;
+    int N = s.size();
     rs = s;
     reverse(rs.begin(), rs.end());
 
     auto stringPrefixHash = generatePrefixHash(s);
     auto ReverseStringPrefixHash = generatePrefixHash(rs);
     auto po = getBaseToThePower(s.size());
-
+for(int L = 1; L <= N; L++ ){
+    cout << existsPalindrome(L,stringPrefixHash,ReverseStringPrefixHash,po) << "\n";
+}
     return 0;
 }
