@@ -9,3 +9,9 @@
 
 <img width="715" alt="image" src="https://user-images.githubusercontent.com/43339514/192675584-2a6ffecd-7f08-4760-bc81-9889b31fe769.png">
 
+### In Degree: Directed Grapg এ যে কইটা edge একটা node এ আসে অর্থাৎ  count of incomming edge
+### Out Degree: Directed Grapg এ যে কইটা edge একটা node হতে বাহির হই অর্থাৎ  count of outgoing edge
+
+
+
+
