@@ -68,24 +68,23 @@ int main()
     auto stringPrefixHash = generatePrefixHash(s);
     auto ReverseStringPrefixHash = generatePrefixHash(rs);
     auto po = getBaseToThePower(s.size());
-/*
+
     int L = 0;
     int R = N ;
     while (L < R){
         int MID = (L + R + 1) / 2;
-        if(existsPalindrome(MID,stringPrefixHash,ReverseStringPrefixHash,po) < 1){
-            R = MID - 1;
+        if(existsPalindrome(MID,stringPrefixHash,ReverseStringPrefixHash,po) > 0){
+            L = MID ;
         }else{
-        L = MID;
+        R= MID - 1;
         }
     }
     cout << R << " " << L;
     return 0;
-
+/*
     for(int L = 0 ; L <= N; L+=2 )
     {*/
         cout << existsPalindrome(7,stringPrefixHash,ReverseStringPrefixHash,po) << "\n";
    // }
-   main();
     return 0;
 }
