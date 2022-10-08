@@ -14,11 +14,14 @@ void bfs(vector<int> src, int n)
         q.push(srcs);
         dist[srcs] = 0;
     }
-    while(!q.empty()){
+    while(!q.empty())
+    {
         auto u = q.front();
         q.pop();
-        for( auto v : gr[u]){
-            if(dist[v] == INT_MAX/2){
+        for( auto v : gr[u])
+        {
+            if(dist[v] == INT_MAX/2)
+            {
                 dist[v] = dist[u] + 1;
                 q.push(v);
             }
@@ -36,6 +39,26 @@ int main()
         gr[b].push_back(a);
     }
     bfs({1,7}, node);
-
+    for(int i = 1; i <= node; i++)
+    {
+        cout << "Dist :" << i << " " << dist[i] << "\n";
+    }
     return 0;
 }
+//******Input********
+/*
+10 13
+1 2
+1 3
+1 4
+1 7
+2 5
+2 6
+3 6
+3 10
+7 10
+7 4
+4 8
+8 9
+7 9
+*/
